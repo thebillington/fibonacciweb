@@ -2,6 +2,232 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
+    
+    <script>
+    window.onload = updateClock;
+        
+    function updateClock() {
+        
+        //Define colours
+        var green = "#a9fb8c";
+        var blue = "#8cabfb";
+        
+        //Add colors
+        var blue = "";
+        var red = "";
+        var green = "";
+        var white = "";
+        
+        //Add objects to reference the boxes
+        var fone = document.getElementById("firstone");
+        var sone = document.getElementById("secondone");
+        var two = document.getElementById("two");
+        var three = document.getElementById("three");
+        var five = document.getElementById("five");
+    
+        var coeff = 1000 * 60 * 5;
+        var date = new Date();  //or use any other date
+        var currentDate = new Date(Math.round(date.getTime() / coeff) * coeff)
+        var hour = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        
+        if (hour > 12) {
+            if (hour == 24) {
+                hour = 0;
+            } else {
+                hour -= 12;
+            }
+
+        }
+        minutes = Math.ceil(minutes);
+        if (minutes == 60) {
+            minutes = 0;
+            hour += 1;
+        }
+        
+        five.innerHTML = hour + " " + minutes;
+        
+        //Booleans to store whether a square should be lit for min, hour, both or none
+        var topOneHour = 0;
+        var bottomOneHour = 0;
+        var twoHour = 0;
+        var threeHour = 0;
+        var fiveHour = 0;
+        
+        var topOneMinute = 0;
+        var bottomOneMinute = 0;
+        var twoMinute = 0;
+        var threeMinute = 0;
+        var fiveMinute = 0;
+        
+        //Create switch statements to light up correct squares
+        switch (hour) {
+            case 1:
+                bottomOneHour = 1;
+                break;
+            case 2:
+                twoHour = 1;
+                break;
+            case 3:
+                threeHour = 1;
+                break;
+            case 4:
+                topOneHour = 1;
+                bottomOneHour = 1;
+                twoHour = 1;
+                break;
+            case 5:
+                fiveHour = 1;
+                break;
+            case 6:
+                bottomOneHour = 1;
+                fiveHour = 1;
+                break;
+            case 7:
+                fiveHour = 1;
+                twoHour = 1;
+                break;
+            case 8:
+                fiveHour = 1;
+                twoHour = 1;
+                bottomOneHour = 1;
+                break;
+            case 9:
+                fiveHour = 1;
+                threeHour = 1;
+                bottomOneHour = 1;
+                break;
+            case 10:
+                fiveHour = 1;
+                twoHour = 1;
+                threeHour = 1;
+                break;
+            case 11:
+                fiveHour = 1;
+                threeHour = 1;
+                twoHour = 1;
+                bottomOneHour = 1;
+                break;
+            case 12:
+                fiveHour = 1;
+                threeHour = 1;
+                twoHour = 1;
+                bottomOneHour = 1;
+                topOneHour = 1;
+                break;
+            default:
+                break;
+        }
+
+        switch (minutes) {
+            case 5:
+                bottomOneMinute = 1;
+                break;
+            case 10:
+                twoMinute = 1;
+                break;
+            case 15:
+                threeMinute = 1;
+                break;
+            case 20:
+                topOneMinute = 1;
+                bottomOneMinute = 1;
+                twoMinute = 1;
+                break;
+            case 25:
+                fiveMinute = 1;
+                break;
+            case 30:
+                bottomOneMinute = 1;
+                fiveMinute = 1;
+                break;
+            case 35:
+                fiveMinute = 1;
+                twoMinute = 1;
+                break;
+            case 40:
+                fiveMinute = 1;
+                twoMinute = 1;
+                bottomOneMinute = 1;
+                break;
+            case 45:
+                fiveMinute = 1;
+                threeMinute = 1;
+                bottomOneMinute = 1;
+                break;
+            case 50:
+                fiveMinute = 1;
+                twoMinute = 1;
+                threeMinute = 1;
+                break;
+            case 55:
+                fiveMinute = 1;
+                threeMinute = 1;
+                twoMinute = 1;
+                bottomOneMinute = 1;
+                break;
+            default:
+                break;
+        }
+        
+        //Light up the squares
+        if (fiveHour == 1) {
+            if (fiveMinute == 1) {
+                five.style.backgroundColor = "#8cabfb";
+            } else {
+                five.style.backgroundColor = "#fb8c8c";
+            }
+        } else if (fiveMinute == 1) {
+                five.style.backgroundColor = "#a9fb8c";
+        } else {
+                five.style.backgroundColor = "white";
+        }
+        if (threeHour == 1) {
+            if (threeMinute == 1) {
+                three.style.backgroundColor = "#8cabfb";
+            } else {
+                three.style.backgroundColor = "#fb8c8c";
+            }
+        } else if (threeMinute == 1) {
+                three.style.backgroundColor = "#a9fb8c";
+        } else {
+                three.style.backgroundColor = "white";
+        }
+        if (twoHour == 1) {
+            if (twoMinute == 1) {
+                two.style.backgroundColor = "#8cabfb";
+            } else {
+                two.style.backgroundColor = "#fb8c8c";
+            }
+        } else if (twoMinute == 1) {
+                two.style.backgroundColor = "#a9fb8c";
+        } else {
+                two.style.backgroundColor = "white";
+        }
+        if (topOneHour == 1) {
+            if (topOneMinute == 1) {
+                fone.style.backgroundColor = "#8cabfb";
+            } else {
+                fone.style.backgroundColor = "#fb8c8c";
+            }
+        } else if (topOneMinute == 1) {
+                fone.style.backgroundColor = "#a9fb8c";
+        } else {
+                fone.style.backgroundColor = "white";
+        }
+        if (bottomOneHour == 1) {
+            if (bottomOneMinute == 1) {
+                sone.style.backgroundColor = "#8cabfb";
+            } else {
+                sone.style.backgroundColor = "#fb8c8c";
+            }
+        } else if (bottomOneMinute == 1) {
+            sone.style.backgroundColor = "#a9fb8c";
+        } else {
+            sone.style.backgroundColor = "white";
+        }
+    }
+    </script>
 
 <head>
     <title>Fibonacci Clock - Can you tell the time?</title>
