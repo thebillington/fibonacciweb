@@ -5,9 +5,9 @@
     
     <script>
     window.onload = updateClock;
+    window.setInterval(updateClock, 1000 * 60);
         
     function updateClock() {
-        
         //Define colours
         var green = "#a9fb8c";
         var blue = "#8cabfb";
@@ -44,8 +44,6 @@
             minutes = 0;
             hour += 1;
         }
-        
-        five.innerHTML = hour + " " + minutes;
         
         //Booleans to store whether a square should be lit for min, hour, both or none
         var topOneHour = 0;
@@ -244,6 +242,15 @@
         <div id="three"></div>
         <div id="five"></div>
     
+    </div>
+    
+    <div id="footer">
+    
+        <a href="https://play.google.com/store/apps/details?id=uk.co.thebillington.laxe">
+            <img alt="Get it on Google Play"
+                src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+        </a>
+        
     </div>
     
 </body>
