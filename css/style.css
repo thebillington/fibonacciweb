@@ -1,0 +1,47 @@
+#clock {
+    top: 15%;
+    position: absolute;
+    width: 60%;
+    height: 50%; 
+    left: 20%;
+}
+
+#firstone {
+    position: absolute;
+    width: 12.5%;
+    height: 20%;
+    left: 25%;
+    background-color: red;
+}
+
+#secondone {
+    position: absolute;
+    width: 12.5%;
+    height: 20%;
+    left: 25%;
+    top: 20%;
+    background-color: blue;
+}
+
+#two {
+    position: absolute;
+    width: 25%;
+    height: 40%;
+    background-color: green;
+}
+
+#three {
+    position: absolute;
+    width: 37.5%;
+    height: 60%;
+    top: 40%;
+    background-color: red;
+}
+
+#five {
+    position: absolute;
+    width: 62.5%;
+    height: 100%;
+    left: 37.5%;
+    background-color: green;
+}
