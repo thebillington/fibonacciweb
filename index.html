@@ -4,9 +4,20 @@
 <html>
     
     <script>
+    //Set update interval of clock
     window.onload = updateClock;
     window.setInterval(updateClock, 1000 * 60);
         
+    //Show and hide How-to
+    function hide() {
+        document.getElementById("background").style.visibility = "hidden";
+    }
+        
+    function show() {
+        document.getElementById("background").style.visibility = "visible";
+    }
+        
+    //Update the clock
     function updateClock() {
         //Define colours
         var green = "#a9fb8c";
@@ -247,11 +258,72 @@
     </div>
     
     <div id="footer">
+        
+        <img style="cursor:pointer;" onclick="show()" src="res/how-it-works.png"/>
     
         <a href="https://play.google.com/store/apps/details?id=uk.co.thebillington.laxe" target="_blank">
             <img alt="Get it on Google Play"
                 src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
         </a>
+        
+    </div>
+    
+    <div id="background">
+    
+    <div id="main">
+        
+        <p style="position:fixed; padding:0; top:0; right:20px; font-size:150%; cursor:pointer;" onclick="hide()" class="close">[X]</p>
+    
+        <h1>The Fibonacci Sequence</h1>
+        
+        <p>The Fibonacci Sequence is a sequence of numbers found to have significant meaning in Nature, Physics, Mathematics and almost all walks of science.<br><br>In the sequence, each number is the sum of the preceding two numbers.<br><br>The first number is 1. So the next number in the sequence is 1 + 0 = 1. (You add 0 as there is no previous number, you are technically adding nothing).<br><br>Now take the sum of the previous two numbers, 1 + 1 = 2. And again, 1 + 2 = 3. And again, 2 + 3 = 5.<br><br>So that gives us the following sequence:</p>
+        
+        <img class="image" src="res/seq.png"/>
+        
+        <p>If we take this sequence we can visualize the first 5 values as squares:</p>
+        
+        <img class="image" src="res/empty.png"/>
+        
+        <p>In the above image we can see that we can count up all the numbers to 12 by adding different squares:<br><br>1 = 1
+    <br>2 = 2
+    <br>1 + 2= 3
+    <br>2 + 2 = 4
+    <br>5 = 5
+    <br>5 + 1 = 6
+    <br>5 + 2 = 7
+    <br>5 + 3 = 8
+    <br>5 + 3 + 1 = 9
+    <br>5 + 3 + 2 = 10
+    <br>5 + 3 + 2 + 1 = 11
+    <br>5 + 3 + 2 + 1 + 1 = 12
+    <br><br>By using the above squares we can count all the hours from 1-12.
+    <br><br>We can also count all of the hours from 0-55, by counting up in multiples of five:
+    <br><br>0 * 5 == 0
+    <br>1 * 5 = 5
+    <br>2 * 5 = 10
+    <br>...
+    <br>11 * 5 = 55<br><br>We are now going to use this information to work out the time with our squares.
+        Any red squares value is added to the hours, any green squares value is added to the minutes, any blue square is added to both, and grey squares are ignored.<br><br>Look at the following picture:</p>
+        
+        <img class="image" src="res/eightfive.png"/>
+        
+        <p>HOURS: Our 5 square is red, our 2 square is red, and our 1 square is blue. We add all these to the hours: 5 + 2 + 1 = 8
+    <br><br>MINUTES:We have no green squares, but our 1 square is blue: 1 * 5 = 5
+    <br><br>So our time is 8:05</p>
+        
+        <img class="image" src="res/twothirtyfive.png">
+        
+        <p>HOURS: 2
+    <br>MINUTES: (2 + 5) * 5 = 7 * 5 = 35
+    <br>The time is 2:35</p>
+        
+        <img class="image" src="res/sixfifty.png">
+        
+        <p>The time is 6:50</p>
+        
+        <p style="font-size:80%; cursor:pointer;" onclick="hide()">close</p>
+        
+    </div>
         
     </div>
     
