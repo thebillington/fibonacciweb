@@ -9,9 +9,10 @@
 #clock {
     top: 20%;
     position: absolute;
-    width: 60%;
-    height: 50%; 
-    left: 20%;
+    width: 50%;
+    padding-top: 25%;
+    box-sizing: border-box;
+    left: 25%;
 }
 
 #firstone {
